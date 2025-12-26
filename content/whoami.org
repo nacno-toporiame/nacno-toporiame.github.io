@@ -1,0 +1,19 @@
+---
+title: Who's NaCNO?
+menu:
+  main:
+    name: Who am I?
+    weight: 3
+    params:
+      icon: copyright
+toc: false
+---
+
+* the ∞-catgirl & witch apprentice
+I'm currently a graduate student trying to work her way into homotopy theory and/or
+algebraic K-theory. I enjoy reinterpreting and explaining well-known things,
+as well as working towards the point where I'm able to produce something original.
+
+* what's around?
+some of the stuff I've worked on or am working on.
+recreation math for sure, but hopefully also other random things.
