@@ -25,3 +25,7 @@ privacy:
 
 menu:
   main: []
+
+caches:
+  images:
+    dir: :cacheDir/images
