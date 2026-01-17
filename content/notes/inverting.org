@@ -52,18 +52,34 @@ More generally, given a map \(f : 1 \to M : C\), we can form the telescope
 (There's also the variant of inverting \(X \to TX\) for an endofunctor \(T\) and other ones I don't know of.)
 
 Notoriously in the point 3. and 4., the telescope in general does **not** suffice to invert. The group completion
-of spaces is no stranger for those who knows \(K\)-theory: The telescope isn't even guaranteed to be an \(H\)-space.
+of spaces is no stranger for those who knows higher algebraic \(K\)-theory in its classical form:
+The telescope isn't even guaranteed to be an \(H\)-space, unless one seeks out the aid of an arcane art ---
+an ancient blessing, since lost to time, known as the \(+\)-construction of D. G. Quillen.
+(Apparently the construction was introduced by Kervaire, which Quillen applied to \(\BB\mathrm{GL}) and made famous.)
 
-This made me reflect on all the other cases, where people /"just telescopes"/ and claim that it's the localisation.
+I came to realise the presence of the issue only when I started learning about things in the motivic realm:
+I know some \(K\)-theory and group completion. Everyone straight off made it clear that it's a big issue, use
+the so-and-so simplicial delooping construction and hardly talked about the telescopes ever after.
+In algebraic contexts, or stably, one can compute its effect on homotopy groups, and it "just works".
 
-In the third context, Robalo--Voevodsky--et al.'s criterion identifies a case where telescoping **does** invert, 
-namely when the cyclic permutation \( (123) : x^{\tensor 3} \to x^{\tensor 3} \) is homotopic to the identity.
+Recently, I went back to reflect on this topic and realised the missing of some pieces.
+Way too often have I seen an author /just telescope/ and say no second word about it, and I obviously
+hadn't been careful enough to question my fossilised algebraic instinct, spoiled by my training in set-based mathematics.
+
+The answer lies not far beyond reach: It's already well-established in the motivic literature. More precisely,
+in the literature on the construction of the category of motivic spectra, where Robalo--Voevodsky--et al.'s criterion
+identifies a case where telescoping **does** invert, namely when the cyclic permutation \( (123) : x^{\tensor 3} \to x^{\tensor 3} \) is homotopic to the identity.
+
+I suspect that the theory has been well known in the topology circle as well, since it's where the \(+\)-construction first
+appeared, /exactly so that one can pass from telescope to group completion/. It's also where we know that
+topological \(K\)-theory /is/ actually given by a telescope. I've seen these during my studies, but not in an order
+so that I'd recognise it on the first glance. Now it's time to make up for it.
 
 * Why does it work, why does it not? What's going on?
 Fix a (presentable) symmetric monoidal category \((C, \tensor, 1)\) and an \(\EE_\infty\)-algebra \(A :\CAlg(C)\).
 Inverting an \(x \in \End(A)\) is to find an /initial/ algebra \(B\) under \(A\), on which \(x\) acts invertibly.
 
-The problem of inverting \(x : C\) is then immediately reduced to the algebra case by viewing \(C : \CAlg(\PrL\),
+The problem of inverting \(x : C\) is then immediately reduced to the algebra case by viewing \(C : \CAlg(\PrL)\),
 with the endomorphism \((- \tensor x)\). We can moreover reduce to the case \(A = 1\) by passing to \(\Mod_A(C)\).
 
 **Reduced setup** \((C, \tensor, 1)\) is a presentable symmetric monoidal category, \(f\) is an endomorphism of \(1\).
@@ -115,8 +131,9 @@ is homotopic to the constant homotopy, then \(T_f \simeq E_f\).
 
 ***The idea*** It suffices to show that \(f\) acts invertibly on \(T_f\).
 One can try to write down a cofinal inclusion of the diagram defining
-\(I \tensor T_f\) into the next term of the diagram for \(T_f\), but
-the diagrams don't commute. In fact, they differ exactly by the cyclic permutation \((12)\) on \(f^{\tensor 2}\).
+\(I \tensor T_f\) into the next term of the diagram for \(T_f\), and try to make it compatible with the
+action of \(f\) /on the outside of the diagram/.
+One finds that diagrams don't commute. In fact, they differ exactly by the cyclic permutation \((12)\) on \(f^{\tensor 2}\).
 If we skip terms and use the cofinal subdiagram
 \[
   A \xrightarrow{f^{\tensor n}} I^{\tensor n} \tensor A \to \ldots
@@ -124,6 +141,9 @@ If we skip terms and use the cofinal subdiagram
 then the difference is the permutation \((12\ldots (n+1))\).
 If this is homotopic to the identity, then the construction goes through, and the action of \(f\) on \(T_f\)
 is by a cofinal inclusion, hence an isomorphism.
+
+***Warning*** There's an obvious equivalence \(T_f \xrightarrow{\sim} T_f \otimes I\), but it differs from
+the action of \(f\) on \(T_f\).
 
 **Corollary** If \(C\) is stable, then \(T_f \simeq E_f\).
 
@@ -140,7 +160,7 @@ The cyclic permutation then acts through its image in
   \Sigma_n = \pi_1\BB\Sigma_n \to \pi_1\SSS[\BB\Sigma_n].
 \]
 The latter is, by Hurewicz theorem, \(\pi_1\SSS \oplus \Sigma_n^{\textrm{ab}} \simeq \ZZ/2[\eta] \oplus \{\pm\}\). The permutation
-lands in the second factor as its sign, and is \(0\) whenever \(n\) is odd.
+lands in the second factor as its sign, and is \(+\) whenever \(n\) is odd.
 
 **Corollary** The classifying spaces \(\mathrm{Vect}_{\mathbb{K}}\) of vector bundles (\(\mathbb{K} = \mathbb{R},\mathbb{C}\)) have
 group completion \(\mathrm{kgl}_{\mathbb{K}}\) (under Whitney sum) given by the corresponding telescopes:
@@ -151,8 +171,8 @@ group completion \(\mathrm{kgl}_{\mathbb{K}}\) (under Whitney sum) given by the 
 In fact, the topological categories \(\mathrm{Vect}_{\mathbb{K}}^{\textrm{inj}}\) of finite dimention \(\mathbb{K}\)-vector
 spaces and injections "Picard complete" to categories \(\mathrm{kgl}_{\mathbb{K}}^{\textrm{inj}}\) through their telescopes. The mapping spaces are
 \[
-  \Map_{\mathrm{kgl}_{\mathbb{K}}}(m,n) \simeq \begin{cases}\emptyset & m > n \\
+  \Map_{\mathrm{kgl}_{\mathbb{K}}^{\textrm{inj}}}(m,n) \simeq \begin{cases}\emptyset & m > n \\
   \mathrm{GL}_\mathbb{K}(\infty)/\mathrm{GL}_\mathbb{K}(-m+n) & m \leq n\end{cases}
 \]
 
-***Proof*** The action of permutation \((123)\) on \(\mathbb{R}^3\) is homotopic to the identity. In the complex case, even \((12)\) acts as identity.
+***Proof*** The action of \((123)\) on \(\mathbb{R}^3\) is homotopic to the identity. In the complex case, even \((12)\) acts as identity.
