@@ -1,13 +1,13 @@
 ---
 date: '2026-01-17T13:40:38+01:00'
 draft: false
-title: "Localisation and telescope: Inversion things in (homotopy) algebra"
+title: "Localisation and telescope: Inverting endomorphisms in (homotopy) algebra"
 math: true
 toc: false
 tags:
   - Math
   - Algebra
-description: A short cautionary tale on inverting an element in a ring.
+description: A short cautionary tale. Stabilisation, localisation or group completion.
 ---
 \[
   \gdef\EE{\mathbb{E}}
@@ -54,7 +54,7 @@ More generally, given a map \(f : 1 \to M : C\), we can form the telescope
 Notoriously in the point 3. and 4., the telescope in general does **not** suffice to invert. The group completion
 of spaces is no stranger for those who knows \(K\)-theory: The telescope isn't even guaranteed to be an \(H\)-space.
 
-This made me reflect on all the other cases, where people __"just telescopes"__ and claim that it's the localisation.
+This made me reflect on all the other cases, where people /"just telescopes"/ and claim that it's the localisation.
 
 In the third context, Robalo--Voevodsky--et al.'s criterion identifies a case where telescoping **does** invert, 
 namely when the cyclic permutation \( (123) : x^{\tensor 3} \to x^{\tensor 3} \) is homotopic to the identity.
@@ -104,7 +104,7 @@ The telescope construction is
 \[
 T_f \simeq \ZZ \times \BB\Sigma_\infty \not\simeq E_f = \Omega^\infty \SSS \simeq \ZZ \times \BB\Sigma_{\infty +}.
 \]
-We canverify that \((- \cup \{\ast\})\) doesn't act invertibly: It includes each copy of \(\Sigma_\infty\)
+We can verify that \((- \cup \{\ast\})\) doesn't act invertibly: It includes each copy of \(\Sigma_\infty\)
 into the the next copy as the stabiliser of a point.
 
 **Criterion** (Robalo--Voevodsky and many other people) If for some \(n \geq 2\), the cyclic permutation
@@ -121,7 +121,7 @@ If we skip terms and use the cofinal subdiagram
 \[
   A \xrightarrow{f^{\tensor n}} I^{\tensor n} \tensor A \to \ldots
 \]
-then the difference is the permutations \((12\ldots (n+1))\).
+then the difference is the permutation \((12\ldots (n+1))\).
 If this is homotopic to the identity, then the construction goes through, and the action of \(f\) on \(T_f\)
 is by a cofinal inclusion, hence an isomorphism.
 
@@ -149,11 +149,10 @@ group completion \(\mathrm{kgl}_{\mathbb{K}}\) (under Whitney sum) given by the 
   \mathrm{ku} := (\mathrm{Vect}_{\mathbb{C}})^{\textrm{grp}} \simeq \ZZ \times \BB\mathrm{U}.
 \]
 In fact, the topological categories \(\mathrm{Vect}_{\mathbb{K}}^{\textrm{inj}}\) of finite dimention \(\mathbb{K}\)-vector
-spaces "Picard complete" to categories \(\mathrm{kgl}_{\mathbb{K}}^{\textrm{inj}}\) through their telescopes. The mapping spaces are
+spaces and injections "Picard complete" to categories \(\mathrm{kgl}_{\mathbb{K}}^{\textrm{inj}}\) through their telescopes. The mapping spaces are
 \[
   \Map_{\mathrm{kgl}_{\mathbb{K}}}(m,n) \simeq \begin{cases}\emptyset & m > n \\
   \mathrm{GL}_\mathbb{K}(\infty)/\mathrm{GL}_\mathbb{K}(-m+n) & m \leq n\end{cases}
 \]
 
-***Proof*** The permutation \((123)\) on \(\mathbb{R}^3\) is homotopic to the identity. For the other two cases,
-even \((12)\) acts as identity.
+***Proof*** The action of permutation \((123)\) on \(\mathbb{R}^3\) is homotopic to the identity. In the complex case, even \((12)\) acts as identity.
