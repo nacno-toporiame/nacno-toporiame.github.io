@@ -1,7 +1,7 @@
 ---
-title: Catacombe
+title: Catalogue
 layout: "archives"
-slug: "catacombe"
+slug: "catalogue"
 menu:
     main:
         weight: 2

@@ -1,0 +1,159 @@
+---
+date: '2026-01-17T13:40:38+01:00'
+draft: false
+title: "Localisation and telescope: Inversion things in (homotopy) algebra"
+math: true
+toc: false
+tags:
+  - Math
+  - Algebra
+description: A short cautionary tale on inverting an element in a ring.
+---
+\[
+  \gdef\EE{\mathbb{E}}
+  \gdef\colim{\operatorname{colim}}
+  \gdef\tensor{\otimes}
+  \gdef\ZZ{\mathbb{Z}}
+  \gdef\SSS{\mathbb{S}}
+  \gdef\BB{\mathbf{B}}
+  \gdef\CAlg{\operatorname{CAlg}}
+  \gdef\Map{\operatorname{Map}}
+  \gdef\map{\operatorname{map}}
+  \gdef\End{\operatorname{End}}
+  \gdef\Mod{\mathrm{Mod}}
+  \gdef\PrL{\mathrm{Pr}^{\mathrm{L}}}
+  \gdef\tel{\operatorname{tel}}
+\]
+This short post discusses a recent confusion about inverting things in a symmetric monoidal (\(\infty\)-)category,
+or the degenerate case, an "element" of an \(\EE_\infty\)-monoid.
+
+Earlier today, I wrote quite a few paragraphs in the Algebraic Topology discord
+server about it, and rubberducked myself into the answer. I apologize if I wasted anyone else's time.
+
+* Inverting things in a ring: levels of generalities
+
+Here are a few well-known cases of inverting things from elementary algebra:
+1. Localisation in discrete commutative rings is given by fractions. 
+   (Localisations of associative rings are given by fraction under some form of
+   Ore's condition.)
+3. Inverting an object \(x\) in a symmetric monoidal category \(C\). This is often spoken about in motivic contexts,
+   where one inverts the Tate motive (pointed projective line, an "twisted" version of \(S^2\)).
+4. Group completing the core of a symmetric monoidal category to obtain its "\(K\)-theory".
+5. Inverting elements in ring spectra \(A\), or \(v_n\)-self maps of finite spectra.
+
+In analogy of fractions is the "telescope" construction on an endomorphism \(f : A \to A\)
+\[
+  \colim (A \xrightarrow{f} A \to \ldots) =: \tel_f(A).
+\]
+More generally, given a map \(f : 1 \to M : C\), we can form the telescope
+\[
+  \colim (1 \xrightarrow{f} M \xrightarrow{M \tensor f} M^{\tensor 2} \to \ldots) =: \tel_f(A).
+\]
+(There's also the variant of inverting \(X \to TX\) for an endofunctor \(T\) and other ones I don't know of.)
+
+Notoriously in the point 3. and 4., the telescope in general does **not** suffice to invert. The group completion
+of spaces is no stranger for those who knows \(K\)-theory: The telescope isn't even guaranteed to be an \(H\)-space.
+
+This made me reflect on all the other cases, where people __"just telescopes"__ and claim that it's the localisation.
+
+In the third context, Robalo--Voevodsky--et al.'s criterion identifies a case where telescoping **does** invert, 
+namely when the cyclic permutation \( (123) : x^{\tensor 3} \to x^{\tensor 3} \) is homotopic to the identity.
+
+* Why does it work, why does it not? What's going on?
+Fix a (presentable) symmetric monoidal category \((C, \tensor, 1)\) and an \(\EE_\infty\)-algebra \(A :\CAlg(C)\).
+Inverting an \(x \in \End(A)\) is to find an /initial/ algebra \(B\) under \(A\), on which \(x\) acts invertibly.
+
+The problem of inverting \(x : C\) is then immediately reduced to the algebra case by viewing \(C : \CAlg(\PrL\),
+with the endomorphism \((- \tensor x)\). We can moreover reduce to the case \(A = 1\) by passing to \(\Mod_A(C)\).
+
+**Reduced setup** \((C, \tensor, 1)\) is a presentable symmetric monoidal category, \(f\) is an endomorphism of \(1\).
+
+**Warning** I'm sweeping the size issues with \(\PrL\) under the rug.
+One might pretend there's a cardinality bound, go up a universe, or stick their head into the sand.
+
+** The obvious answer
+The full subcategory \(C_f\) of \(C\) on which \(f\) acts invertible is closed under
+all colimits and limits, so the inclusion has both adjoints. It's also not hard to see that it's a symmetric monoidal
+localisation, given by an idempotent algebra \(1[x^{-1}]\) which universally inverts \(f\).
+Let \(L_f : C \twoheadrightarrow C_f\) denote the left adjoint to
+the inclusion, so that we can define \(E_f := 1[f^{-1}] := L_f(1)\). As usual we let \(T_f := \tel_f(1)\) be the
+sequential colimit as defined above.
+
+Since \(1 \xrightarrow{x} 1\) is an \(L_x\)-equivalence, so is \(1 \to T_f\). We can conclude that
+there is a unique map \(T_f \to E_f\) under \(1\), and that
+\[
+  T_f \simeq E_f \Leftrightarrow f : T_f \to T_f \text{ is an isomorphism.}
+\]
+
+**Remark** We can generalise to the case of an morphism \(f : 1 \to I\), and consider the full subcategory on objects \(X\) where
+\[
+ f : X \to I \tensor X \text{ is an isomorphism.}
+\]
+In addition, we demand that \(I\) be dualisable. This guarantees the following:
+1. \((- \tensor I)\) preserves limits, so that \(C_f\) is closed under limits.
+   The left reflection \(L_f : C \twoheadrightarrow C_f\) exists.
+2. \(C_f\) is closed under powers, so that \(L_f\) is a monoidal localisation.
+   \[
+   \hom_C(Z, X) \to I \tensor \hom_C(Z, X) \simeq \hom_C(Z, I \tensor X).
+   \]
+It's an interesting quiz to see how far the generalisation goes.
+
+**Example** In \(C = \mathrm{An}\), we consider the algebra \(A = \mathrm{core}(\mathrm{FinSet})\), the
+free \(\EE_\infty\)-space on a point, with the distinguished endomorphism \((- \cup \{\ast\})\).
+The telescope construction is
+\[
+T_f \simeq \ZZ \times \BB\Sigma_\infty \not\simeq E_f = \Omega^\infty \SSS \simeq \ZZ \times \BB\Sigma_{\infty +}.
+\]
+We canverify that \((- \cup \{\ast\})\) doesn't act invertibly: It includes each copy of \(\Sigma_\infty\)
+into the the next copy as the stabiliser of a point.
+
+**Criterion** (Robalo--Voevodsky and many other people) If for some \(n \geq 2\), the cyclic permutation
+\[
+  (12\ldots n) : f^{\tensor n} \Rightarrow f^{\tensor n} : 1 \to I^{\tensor n}
+\]
+is homotopic to the constant homotopy, then \(T_f \simeq E_f\).
+
+***The idea*** It suffices to show that \(f\) acts invertibly on \(T_f\).
+One can try to write down a cofinal inclusion of the diagram defining
+\(I \tensor T_f\) into the next term of the diagram for \(T_f\), but
+the diagrams don't commute. In fact, they differ exactly by the cyclic permutation \((12)\) on \(f^{\tensor 2}\).
+If we skip terms and use the cofinal subdiagram
+\[
+  A \xrightarrow{f^{\tensor n}} I^{\tensor n} \tensor A \to \ldots
+\]
+then the difference is the permutations \((12\ldots (n+1))\).
+If this is homotopic to the identity, then the construction goes through, and the action of \(f\) on \(T_f\)
+is by a cofinal inclusion, hence an isomorphism.
+
+**Corollary** If \(C\) is stable, then \(T_f \simeq E_f\).
+
+***Proof*** The action of \(\Sigma_n\) on the above map is given by a map
+\[
+  \BB\Sigma_n \to \Map_C(1, I^{\tensor n}).
+\]
+When \(C\) is stable, the right-hand side is the 0-th space of spectrum, and the map factors as
+\[
+  \SSS[\BB\Sigma_n] \to \map_C(1, I^{\tensor n}).
+\]
+The cyclic permutation then acts through its image in
+\[
+  \Sigma_n = \pi_1\BB\Sigma_n \to \pi_1\SSS[\BB\Sigma_n].
+\]
+The latter is, by Hurewicz theorem, \(\pi_1\SSS \oplus \Sigma_n^{\textrm{ab}} \simeq \ZZ/2[\eta] \oplus \{\pm\}\). The permutation
+lands in the second factor as its sign, and is \(0\) whenever \(n\) is odd.
+
+**Corollary** The classifying spaces \(\mathrm{Vect}_{\mathbb{K}}\) of vector bundles (\(\mathbb{K} = \mathbb{R},\mathbb{C}\)) have
+group completion \(\mathrm{kgl}_{\mathbb{K}}\) (under Whitney sum) given by the corresponding telescopes:
+\[
+  \mathrm{ko} := (\mathrm{Vect}_{\mathbb{R}})^{\textrm{grp}} \simeq \ZZ \times \BB\mathrm{O},
+  \mathrm{ku} := (\mathrm{Vect}_{\mathbb{C}})^{\textrm{grp}} \simeq \ZZ \times \BB\mathrm{U}.
+\]
+In fact, the topological categories \(\mathrm{Vect}_{\mathbb{K}}^{\textrm{inj}}\) of finite dimention \(\mathbb{K}\)-vector
+spaces "Picard complete" to categories \(\mathrm{kgl}_{\mathbb{K}}^{\textrm{inj}}\) through their telescopes. The mapping spaces are
+\[
+  \Map_{\mathrm{kgl}_{\mathbb{K}}}(m,n) \simeq \begin{cases}\emptyset & m > n \\
+  \mathrm{GL}_\mathbb{K}(\infty)/\mathrm{GL}_\mathbb{K}(-m+n) & m \leq n\end{cases}
+\]
+
+***Proof*** The permutation \((123)\) on \(\mathbb{R}^3\) is homotopic to the identity. For the other two cases,
+even \((12)\) acts as identity.

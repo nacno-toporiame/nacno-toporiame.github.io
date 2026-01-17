@@ -1,5 +1,5 @@
 ---
-title: (Central) group extensions from the homotopy perspective
+title: "(Central) group extensions from the homotopy perspective"
 date: 2025-12-26T09:07:34+01:00
 draft: false
 math: true
@@ -7,6 +7,7 @@ toc: true
 tags:
   - Math
   - Algebra
+description: "A classical lemma used to construct k-invariants, and its relation to group extensions"
 ---
 
 \[
