@@ -3,12 +3,13 @@ date: '2026-01-17T13:40:38+01:00'
 draft: false
 title: "Localisation and telescope: Inverting endomorphisms in (homotopy) algebra"
 math: true
-toc: false
+toc: true
 tags:
   - Math
   - Algebra
 description: A short cautionary tale. Stabilisation, localisation or group completion.
 ---
+#+OPTIONS: tex:verbatim
 \[
   \gdef\EE{\mathbb{E}}
   \gdef\colim{\operatorname{colim}}
@@ -30,32 +31,38 @@ or the degenerate case, an "element" of an \(\EE_\infty\)-monoid.
 Earlier today, I wrote quite a few paragraphs in the Algebraic Topology discord
 server about it, and rubberducked myself into the answer. I apologize if I wasted anyone else's time.
 
-* Inverting things in a ring: levels of generalities
+*EDIT 2026-01-18*: An error on how far we could generalise the setting in the Remark.
 
-Here are a few well-known cases of inverting things from elementary algebra:
-1. Localisation in discrete commutative rings is given by fractions. 
-   (Localisations of associative rings are given by fraction under some form of
-   Ore's condition.)
-3. Inverting an object \(x\) in a symmetric monoidal category \(C\). This is often spoken about in motivic contexts,
+* What's wrong with inverting things? Can't you just...
+
+Of course you can! It appears everywhere and is extremely useful, which is why people talk about it a lot.
+It's so commonplace that I nearly stopped thinking about it. Here are a few common occurrences, see if you spot any issue.
+
+1. Localisation in discrete commutative rings is given by fractions.
+2. Localisations of associative rings are given by fraction under some form of
+   Ore's condition.
+3. Localising the category of chain complexes at the quasi-isomorphisms.
+   There's a model using sequences of zig-zags, and if the stars align, a single zig-zag suffices.
+4. Inverting elements in ring spectra \(A\), or \(v_n\)-self maps of finite spectra.
+5. Inverting an object \(x\) in a symmetric monoidal category \(C\). This is often spoken about in motivic contexts,
    where one inverts the Tate motive (pointed projective line, an "twisted" version of \(S^2\)).
-4. Group completing the core of a symmetric monoidal category to obtain its "\(K\)-theory".
-5. Inverting elements in ring spectra \(A\), or \(v_n\)-self maps of finite spectra.
+6. Group completing the core of a symmetric monoidal category to obtain its "\(K\)-theory".
 
 In analogy of fractions is the "telescope" construction on an endomorphism \(f : A \to A\)
 \[
-  \colim (A \xrightarrow{f} A \to \ldots) =: \tel_f(A).
+  \colim (A \xrightarrow{f} A \to \ldots) \eqqcolon \tel_f(A).
 \]
 More generally, given a map \(f : 1 \to M : C\), we can form the telescope
 \[
-  \colim (1 \xrightarrow{f} M \xrightarrow{M \tensor f} M^{\tensor 2} \to \ldots) =: \tel_f(A).
+  \colim (A \xrightarrow{f \tensor 1} M \tensor A \xrightarrow{f \tensor 1} M^{\tensor 2} \tensor A \to \ldots) \eqqcolon \tel_f(A).
 \]
 (There's also the variant of inverting \(X \to TX\) for an endofunctor \(T\) and other ones I don't know of.)
 
-Notoriously in the point 3. and 4., the telescope in general does **not** suffice to invert. The group completion
-of spaces is no stranger for those who knows higher algebraic \(K\)-theory in its classical form:
-The telescope isn't even guaranteed to be an \(H\)-space, unless one seeks out the aid of an arcane art ---
-an ancient blessing, since lost to time, known as the \(+\)-construction of D. G. Quillen.
-(Apparently the construction was introduced by Kervaire, which Quillen applied to \(\BB\mathrm{GL}) and made famous.)
+Notoriously in the point 3. and 4., the telescope in general does **not** suffice to invert, /even though everything does seem commutative/!
+The issue with group completion of spaces is no stranger for those who knows higher algebraic \(K\)-theory in its classical form:
+The telescope isn't even guaranteed to be an \(H\)-space, as there are some issues with the fundamental group actions.
+One must seeks out the aid of an arcane art --- an ancient blessing, since lost to time, known as the \(+\)-construction of D. G. Quillen.
+(Apparently the construction was introduced by Kervaire, which Quillen applied to \(\BB\mathrm{GL}\) and made famous.)
 
 I came to realise the presence of the issue only when I started learning about things in the motivic realm:
 I know some \(K\)-theory and group completion. Everyone straight off made it clear that it's a big issue, use
@@ -87,34 +94,48 @@ with the endomorphism \((- \tensor x)\). We can moreover reduce to the case \(A 
 **Warning** I'm sweeping the size issues with \(\PrL\) under the rug.
 One might pretend there's a cardinality bound, go up a universe, or stick their head into the sand.
 
-** The obvious answer
+** The localisations: What's going on
 The full subcategory \(C_f\) of \(C\) on which \(f\) acts invertible is closed under
-all colimits and limits, so the inclusion has both adjoints. It's also not hard to see that it's a symmetric monoidal
-localisation, given by an idempotent algebra \(1[x^{-1}]\) which universally inverts \(f\).
-Let \(L_f : C \twoheadrightarrow C_f\) denote the left adjoint to
-the inclusion, so that we can define \(E_f := 1[f^{-1}] := L_f(1)\). As usual we let \(T_f := \tel_f(1)\) be the
-sequential colimit as defined above.
+all colimits and limits, so that the inclusion has both adjoints.
+Let \(L_f : C \twoheadrightarrow C_f\) denote the left adjoint.
 
-Since \(1 \xrightarrow{x} 1\) is an \(L_x\)-equivalence, so is \(1 \to T_f\). We can conclude that
-there is a unique map \(T_f \to E_f\) under \(1\), and that
+It's also not hard to see that \(L_f\) is a symmetric monoidal localisation, i.e. the \(L_f\)-equivalences are closed
+under tensoring with any other object.
+We can now define \(E_f \coloneqq 1[f^{-1}] \coloneqq L_f(1)\). Now for any \(X : C\), the map \(X \to E_f \tensor X\)
+is an \(L_f\)-equivalence, since \(1 \to E_f\) is. \(E_f \tensor X\) is also \(L_f\)-local, as \(E_f\) is.
+In other words, the algebra \(E_f\) is the idempotent algebra which universally inverts \(f\), and the localisation is smashing, i.e.:
+\[
+  L_f(X) \simeq E_f \tensor X
+\]
+
+As usual we let \(T_f \coloneqq \tel_f(1)\) be the sequential colimit as defined above.
+We note that \(1 \xrightarrow{f} 1\) is an \(L_f\)-equivalence, hence so is any \(X \to T_f \tensor X\). We can conclude that
+there is a unique map \(T_f \to E_f\) under \(1\), and that that they coincide if and only if \(T_f\) is already \(L_f\)-local
 \[
   T_f \simeq E_f \Leftrightarrow f : T_f \to T_f \text{ is an isomorphism.}
 \]
-
-**Remark** We can generalise to the case of an morphism \(f : 1 \to I\), and consider the full subcategory on objects \(X\) where
+#+BEGIN_QUOTE
+*Remark* We can generalise to the case of an morphism \(f : 1 \to I\), and consider the full subcategory on objects \(X\) where
 \[
- f : X \to I \tensor X \text{ is an isomorphism.}
+ f \tensor 1 : X \to I \tensor X \text{ is an isomorphism.}
 \]
-In addition, we demand that \(I\) be dualisable. This guarantees the following:
+In addition, we demand that \(I\) be +dualisable+ (*ERRATUM: invertible!*). This guarantees the following:
 1. \((- \tensor I)\) preserves limits, so that \(C_f\) is closed under limits.
    The left reflection \(L_f : C \twoheadrightarrow C_f\) exists.
-2. \(C_f\) is closed under powers, so that \(L_f\) is a monoidal localisation.
+2. \(C_f\) is closed under powers, so that \(L_f\)-equivalences are closed under tensors.
    \[
    \hom_C(Z, X) \to I \tensor \hom_C(Z, X) \simeq \hom_C(Z, I \tensor X).
    \]
-It's an interesting quiz to see how far the generalisation goes.
-
-**Example** In \(C = \mathrm{An}\), we consider the algebra \(A = \mathrm{core}(\mathrm{FinSet})\), the
+   This makes \(L_f\) into a monoidal localisation.
+3. \(T \xrightarrow{f \tensor 1}  I \tensor T\) is an \(L_f\)-equivalence.
+   Indeed, \(f \tensor 1\) being an \(L_f\)-equivalence is the same as
+   \(I^\vee \tensor X \xrightarrow{f^\vee \tensor 1} X\) being an equivalence for all \(X : C_f\),
+   which follows if the coevaluation \(I^\vee \tensor I \to 1\) is an isomorphism.
+   
+For the first two points to hold, we only need dualisability of \(I\). The third is where we needed invertibility,
+in order to make \(T_f\) even /plausible/ as a candidate for \(E_f\).
+#+END_QUOTE
+*Example* In \(C = \mathrm{An}\), we consider the algebra \(A = \mathrm{core}(\mathrm{FinSet})\), the
 free \(\EE_\infty\)-space on a point, with the distinguished endomorphism \((- \cup \{\ast\})\).
 The telescope construction is
 \[
@@ -123,30 +144,48 @@ T_f \simeq \ZZ \times \BB\Sigma_\infty \not\simeq E_f = \Omega^\infty \SSS \sime
 We can verify that \((- \cup \{\ast\})\) doesn't act invertibly: It includes each copy of \(\Sigma_\infty\)
 into the the next copy as the stabiliser of a point.
 
-**Criterion** (Robalo--Voevodsky and many other people) If for some \(n \geq 2\), the cyclic permutation
+** When it works, it works.
+
+Let's first summarise our setup:
+#+BEGIN_QUOTE
+\((C, \tensor, 1)\) is a symmetric monoidal category, \(I : C\) is an invertible object and \(f: 1 \to I\) is a morphism.
+
+\(C_f\) is the bireflective subcategory on which \(f\) acts invertibly. The left localisation \(L_f\) is a smashing localisation,
+given by an idempotent algebra \(E_f\).
+
+We would like to know whether \(E_f\) is equivalent to the telescope
+\[
+  T_f \coloneqq \colim ( 1 \xrightarrow{f} I \xrightarrow{f \tensor 1} I^{\tensor 2} \to \ldots)
+\]
+#+END_QUOTE
+The motivic literature contains the following criterion for when the telescope does give the correct answer.
+#+BEGIN_QUOTE
+*Criterion* (Robalo--Voevodsky and many other people) If for some \(n \geq 2\), the cyclic permutation
 \[
   (12\ldots n) : f^{\tensor n} \Rightarrow f^{\tensor n} : 1 \to I^{\tensor n}
 \]
 is homotopic to the constant homotopy, then \(T_f \simeq E_f\).
+#+END_QUOTE
+*The idea* It suffices to show that \(f\) acts invertibly on \(T_f\).
 
-***The idea*** It suffices to show that \(f\) acts invertibly on \(T_f\).
-One can try to write down a cofinal inclusion of the diagram defining
-\(I \tensor T_f\) into the next term of the diagram for \(T_f\), and try to make it compatible with the
-action of \(f\) /on the outside of the diagram/.
-One finds that diagrams don't commute. In fact, they differ exactly by the cyclic permutation \((12)\) on \(f^{\tensor 2}\).
+There's an obvious equivalence \(T_f \xrightarrow{\sim} T_f \otimes I\), given by a cofinal inclusion of the
+two colimit diagrams. 
+
+The issue is that this inclusion differs from the action of \(f\) on \(T_f\).
+An inclusion would have identity arrows /and identity homotopies/ everywhere.
+The homotopies that are involved with \(T_f \xrightarrow{f \tensor 1} I \tensor T_f\) come from the bifunctoriality of \(- \tensor -\).
+If one thinks about it, the homotopy is exactly the cyclic permutation \((12)\) acting on \(f^{\tensor 2}\).
 If we skip terms and use the cofinal subdiagram
 \[
   A \xrightarrow{f^{\tensor n}} I^{\tensor n} \tensor A \to \ldots
 \]
 then the difference is the permutation \((12\ldots (n+1))\).
-If this is homotopic to the identity, then the construction goes through, and the action of \(f\) on \(T_f\)
-is by a cofinal inclusion, hence an isomorphism.
+If this homotopy is constant, then the construction goes through, and the action of \(f\) on \(T_f\)
+/can/ be identified with a cofinal inclusion, and is hence an isomorphism.
 
-***Warning*** There's an obvious equivalence \(T_f \xrightarrow{\sim} T_f \otimes I\), but it differs from
-the action of \(f\) on \(T_f\).
-
-**Corollary** If \(C\) is stable, then \(T_f \simeq E_f\).
-
+#+BEGIN_QUOTE
+*Corollary* If \(C\) is stable, then \(T_f \simeq E_f\).
+#+END_QUOTE
 ***Proof*** The action of \(\Sigma_n\) on the above map is given by a map
 \[
   \BB\Sigma_n \to \Map_C(1, I^{\tensor n}).
@@ -161,12 +200,12 @@ The cyclic permutation then acts through its image in
 \]
 The latter is, by Hurewicz theorem, \(\pi_1\SSS \oplus \Sigma_n^{\textrm{ab}} \simeq \ZZ/2[\eta] \oplus \{\pm\}\). The permutation
 lands in the second factor as its sign, and is \(+\) whenever \(n\) is odd.
-
+#+BEGIN_QUOTE
 **Corollary** The classifying spaces \(\mathrm{Vect}_{\mathbb{K}}\) of vector bundles (\(\mathbb{K} = \mathbb{R},\mathbb{C}\)) have
 group completion \(\mathrm{kgl}_{\mathbb{K}}\) (under Whitney sum) given by the corresponding telescopes:
 \[
-  \mathrm{ko} := (\mathrm{Vect}_{\mathbb{R}})^{\textrm{grp}} \simeq \ZZ \times \BB\mathrm{O},
-  \mathrm{ku} := (\mathrm{Vect}_{\mathbb{C}})^{\textrm{grp}} \simeq \ZZ \times \BB\mathrm{U}.
+  \mathrm{ko} \coloneqq (\mathrm{Vect}_{\mathbb{R}})^{\textrm{grp}} \simeq \ZZ \times \BB\mathrm{O},
+  \mathrm{ku} \coloneqq (\mathrm{Vect}_{\mathbb{C}})^{\textrm{grp}} \simeq \ZZ \times \BB\mathrm{U}.
 \]
 In fact, the topological categories \(\mathrm{Vect}_{\mathbb{K}}^{\textrm{inj}}\) of finite dimention \(\mathbb{K}\)-vector
 spaces and injections "Picard complete" to categories \(\mathrm{kgl}_{\mathbb{K}}^{\textrm{inj}}\) through their telescopes. The mapping spaces are
@@ -174,5 +213,5 @@ spaces and injections "Picard complete" to categories \(\mathrm{kgl}_{\mathbb{K}
   \Map_{\mathrm{kgl}_{\mathbb{K}}^{\textrm{inj}}}(m,n) \simeq \begin{cases}\emptyset & m > n \\
   \mathrm{GL}_\mathbb{K}(\infty)/\mathrm{GL}_\mathbb{K}(-m+n) & m \leq n\end{cases}
 \]
-
+#+END_QUOTE
 ***Proof*** The action of \((123)\) on \(\mathbb{R}^3\) is homotopic to the identity. In the complex case, even \((12)\) acts as identity.
