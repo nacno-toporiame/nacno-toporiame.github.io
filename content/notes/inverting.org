@@ -32,15 +32,36 @@ Earlier today, I wrote quite a few paragraphs in the Algebraic Topology discord
 server about it, and rubberducked myself into the answer. I apologize if I wasted anyone else's time.
 
 *EDIT 2026-01-18*: An error on how far we could generalise the setting in the Remark.
+*EDIT 2026-02-18*: Reworked some storytelling.
 
-* What's wrong with inverting things? Can't you just...
+In the introduction, I'll be vague about the precise meaning of "localisation" and "to invert".
+I will mention a few concrete examples, but the reader is invited to come up with their
+own dialect of English where sense can be made.
 
-Of course you can! It appears everywhere and is extremely useful, which is why people talk about it a lot.
-It's so commonplace that I nearly stopped thinking about it. Here are a few common occurrences, see if you spot any issue.
+If you have a family \(S\) of *s*tuff (that's a technical term) that you want to invert, you can
+make up a notion of \(S\)-local objects, as those who "treat things in \(S\) /as if/ they are invertible", in an
+appropriate sense. In nice situations, each object has a universal approximation by an \(S\)-local object, and this
+approximation process is called *localisation*. It /is out there/ for general reasons, which means we don't
+know a priori what they're built out of, except that they "solve the correct problem".
+
+The stereotypical example is to "localise at a prime \(p\)", in which case \(S\) consists of all prime numbers
+/except/ \(p\). Usually I'd be talking about rings or abelian groups, and we know exactly what localisations look like here:
+you can just write down fractions and routinely check that it works. You've seen this during your undergrads.
+
+It takes some work to figure out what "fractions" means in other contexts, and they're not always the correct thing
+to do.
+
+* What's wrong with fractions? Can't you just...
+
+Of course you can! It appears quite often and /just works/ in a lot of situations,
+which is why people talk about it a lot. It's so commonplace that I nearly stopped thinking about it,
+and had to think to remember those cases where it famously doesn't work.
+
+Here are a few common localisations, see if you spot any issue.
 
 1. Localisation in discrete commutative rings is given by fractions.
 2. Localisations of associative rings are given by fraction under some form of
-   Ore's condition.
+   Ore's condition. In general they are build out of words
 3. Localising the category of chain complexes at the quasi-isomorphisms.
    There's a model using sequences of zig-zags, and if the stars align, a single zig-zag suffices.
 4. Inverting elements in ring spectra \(A\), or \(v_n\)-self maps of finite spectra.
@@ -186,7 +207,7 @@ If this homotopy is constant, then the construction goes through, and the action
 #+BEGIN_QUOTE
 *Corollary* If \(C\) is stable, then \(T_f \simeq E_f\).
 #+END_QUOTE
-***Proof*** The action of \(\Sigma_n\) on the above map is given by a map
+*Proof* The action of \(\Sigma_n\) on the above map is given by a map
 \[
   \BB\Sigma_n \to \Map_C(1, I^{\tensor n}).
 \]
@@ -201,7 +222,7 @@ The cyclic permutation then acts through its image in
 The latter is, by Hurewicz theorem, \(\pi_1\SSS \oplus \Sigma_n^{\textrm{ab}} \simeq \ZZ/2[\eta] \oplus \{\pm\}\). The permutation
 lands in the second factor as its sign, and is \(+\) whenever \(n\) is odd.
 #+BEGIN_QUOTE
-**Corollary** The classifying spaces \(\mathrm{Vect}_{\mathbb{K}}\) of vector bundles (\(\mathbb{K} = \mathbb{R},\mathbb{C}\)) have
+*Corollary* The classifying spaces \(\mathrm{Vect}_{\mathbb{K}}\) of vector bundles (\(\mathbb{K} = \mathbb{R},\mathbb{C}\)) have
 group completion \(\mathrm{kgl}_{\mathbb{K}}\) (under Whitney sum) given by the corresponding telescopes:
 \[
   \mathrm{ko} \coloneqq (\mathrm{Vect}_{\mathbb{R}})^{\textrm{grp}} \simeq \ZZ \times \BB\mathrm{O},
@@ -214,4 +235,4 @@ spaces and injections "Picard complete" to categories \(\mathrm{kgl}_{\mathbb{K}
   \mathrm{GL}_\mathbb{K}(\infty)/\mathrm{GL}_\mathbb{K}(-m+n) & m \leq n\end{cases}
 \]
 #+END_QUOTE
-***Proof*** The action of \((123)\) on \(\mathbb{R}^3\) is homotopic to the identity. In the complex case, even \((12)\) acts as identity.
+*Proof* The action of \((123)\) on \(\mathbb{R}^3\) is homotopic to the identity. In the complex case, even \((12)\) acts as identity.
