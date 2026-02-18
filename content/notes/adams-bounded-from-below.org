@@ -1,5 +1,5 @@
 ---
-title: Adams spectral sequence on bounded below spectra
+title: Adams tower on bounded below spectra
 date: 2026-02-17T22:20:39+01:00
 draft: false
 math: true
@@ -15,29 +15,36 @@ as a central but mundane trick from Nikolaus--Scholze's Topological Cyclic Homol
 is no stranger for the mathematical omnivore I have been, I've always assumed to some extent that they
 /do what they claim to/, and somewhat focused on what the machine produces, less so on what it computes.
 
-References:
-1. [ND]: [[https://arxiv.org/abs/1507.06869][Nilpotence and descent in equivariant stable homotopy theory]] by Akhil Mathew, Niko Naumann and Justin Noel
-2. [TC]: [[http://arxiv.org/abs/1707.01799][On topological cyclic homology]] by Thomas Nikolaus and Peter Scholze
+*References*:
+- [ND]: [[https://arxiv.org/abs/1507.06869][Nilpotence and descent in equivariant stable homotopy theory]] by Akhil Mathew, Niko Naumann and Justin Noel.
+- [TC]: [[http://arxiv.org/abs/1707.01799][On topological cyclic homology]] by Thomas Nikolaus and Peter Scholze.
+*Auxiliary*:
+- [HTT] and [HA]: by [[https://www.math.ias.edu/~lurie/][Jacob Lurie]].
+- [LE] [[https://www.sciencedirect.com/science/article/pii/0040938379900181][The localisation of spectra with respect to homology]] by Pete Bousfield.
 
-For our purpose today, the Adams spectral sequence is the totalisation spectral sequence associated to an \(\mathbb{E}_1\)-ring
-spectrum \(E\) and a spectrum \(X\). The major examples we'd like to have in mind are \(E = \mathbb{F}_p\) and \(\mathrm{MU}\).
+For our purpose today, the Adams spectral sequence is the totalisation spectral sequence of a cosimplicial object associated to an \(\mathbb{E}_1\)-ring
+spectrum \(E\) and a spectrum \(X\). We won't discuss the spectral sequence, but rather the totalisation, which it /morally/ computes.
+
+The major examples we'd like to have in mind are \(E = \mathbb{F}_p\) and \(\mathrm{MU}\).
 Other common examples include Bott-periodic or connective topological \(\mathrm{K}\)-theory \(\mathrm{KU}\), \(\mathrm{ku}\), as well as Morava \(\mathrm{E}\)-theories.
 A well-known result (Devinatz--Hopkins cites Morava's change of rings theorem.) identifies the \(K(n)\)-local \(E_n\)-Adams spectral sequence with the
 homotopy fixed points spectral sequence for the Morava stabiliser group. We will not concern ourselves with these (extremely interesting) examples.
 
 The situation we concern ourselves with in the current blog post is classical: When \(E\) is connective and \(\mathbb{S} \to E\) is surjective on \(\pi_0\).
-(A similar statement exists for \(\mathbb{Z} \subseteq \pi_0 E \subseteq \mathbb{Q}\) where the method employed here doesn't directly apply.)
+(A similar statement exists for \(\mathbb{Z} \subseteq \pi_0 E \subseteq \mathbb{Q}\).)
 #+BEGIN_QUOTE
 When \(E\) is a connective \(\mathbb{E}_1\)-ring whose unit morphism \(\mathbb{S} \to E\) is surjective on \(\pi_0\) and \(X\) is a bounded below spectrum,
 the \(E\)-descent object \(D_E X\) (in \(\mathrm{Sp}\)) for \(X\) (defined below) coincides with the Bousfield localisation of \(X\) at the Moore
 spectrum associated to \(\pi_0 E\).
 #+END_QUOTE
 For instance, if \(X\) is connective then \(D_{\mathrm{MU}} X \simeq X\) and \(D_{\mathbb{F}_p} X \simeq X_{\hat p}\) is the \(p\)-completion. This
-justifies the classical case of Adams(-Novikov) spectral sequences.
+alludes to the classical case of Adams(-Novikov) spectral sequences.
 
 #+BEGIN_QUOTE
 The connectivity is crucial, both on \(E\) and on \(X\). At a fixed prime, the Morava \(K\)-theories are \(p\)-complete and mutually acyclic.
 #+END_QUOTE
+Before starting, we reiterate that Bousfield [LE, 6.5-7] already showed that the condition on \(pi_0 E\) can be refined.
+Nevertheless, the examples we have in mind often don't require such generality.
 
 * The descent tower and the Adams tower
 This section is closely following, if not taken from, [ND, Sec. 2.1].
@@ -55,7 +62,7 @@ D^{(n)}_E X \coloneqq \lim_{\bullet : \Delta_{\leq n}} X \otimes D^\bullet_E.
 \]
 We call this the *descent tower*. The associated spectral sequence is called the *Adams spectral sequence*.
 #+END_QUOTE
-We use the only reasonable convention that \(\Delta_{\leq -1}=\emptyset\). A few remarks are due (All can be found in [ND] in a generalised setting):
+We use the only reasonable convention that \(\Delta_{\leq -1}=\emptyset\). A few remarks are due (Most can be found in [ND] in a generalised setting):
 
 2. There is a natural map \(X \to D_E X\) induced by the coaugmentation, which we claimed and will know to be a localisation in the classical situation.
    However we might like this to be true, a priori the descent construction \(D_E(-)\) has no reason to be idempotent, let alone a localisation.
@@ -70,13 +77,13 @@ We use the only reasonable convention that \(\Delta_{\leq -1}=\emptyset\). A few
    (I haven't got to read the paper yet, so I can't say how canonical or unique these rings are. These are almost surely not computable anyway.)
 5. The filtration is complete in the sense that its limit is \(D_E X\). Caution is due in translating this into computations on homotopy groups.
    We don't plan to cover this part in this blog post.
-1. Although \(\Delta^{\textrm{inj}}\) is coinitial in \(\Delta\), the same is not true for \(\Delta_{\leq n}\).
+1. Although \(\Delta^{\textrm{inj}}\) is coinitial in \(\Delta\) [HTT, 6.5.3.7], the same is not true for \(\Delta_{\leq n}\) (which isn't even weakly contractible, but see [HA, 1.2.4.17]).
    This is one reason we demanded that \(E\) be \(\mathbb{E}_1\).
    
 Another reason for demanding a ring structure lies with the identification of the Adams \(E_2\)-page as \(\mathrm{Ext}\)-groups
 of graded comodules over a Hopf algebroid. This also depends on a flatness conditions which will not be discussed.
 
-We'll make use of the following well-known description of the Adam tower [ND, Prop. 2.14]:
+We'll make use of the following well-known description of the Adam tower [ND, Prop. 2.14]: (The proof is [HA 1.2.4.17]
 #+BEGIN_QUOTE
 Let \(I \coloneqq \mathrm{fib}(\mathbb{S} \to E)\) be the "kernel" of the ring's unit. Set iteratively
 \[
@@ -184,3 +191,5 @@ If \(E\) and \(X\) are connective, then \(X[T^{-1}] \simeq D_E X\).
 #+END_QUOTE
 *Proof.* As before, we reduce to the case where \(X\) is discrete. Since \(E \simeq \mathbb{S}[T^{-1}] \otimes E\), we have
 \(D_E X \simeq D_E(X[T^{-1}])\). Again, the \(E\)-descent diagram for \(X[T^{-1}]\) splits since it admits a module structure over \(\tau_{\leq 0} E\).
+
+*Remark.* If \(\tau_{\leq 0} E \simeq \mathbb{Z}\), then \(I\) is \(1\)-connective, so already the fiber of descent \(T_E\) vanishes on bounded below spectra.
