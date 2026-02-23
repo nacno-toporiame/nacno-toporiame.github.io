@@ -12,11 +12,14 @@ params:
     toc: true
     readingTime: false
   sidebar:
+    subtitle: "a witch apprentice's spellbook"
     avatar:
       src: img/avatar.jpeg
   widgets:
     page:
       - type: toc
+  cookies:
+    enabled: false
 
 privacy:
   googleAnalytics:
@@ -25,6 +28,12 @@ privacy:
 
 menu:
   main: []
+  social:
+    - identifier: github
+      name: GitHub
+      url: https://github.com/nacno-toporiame/nacno-toporiame.github.io
+      params:
+        icon: brand-github
 
 caches:
   images:

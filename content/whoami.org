@@ -18,3 +18,6 @@ as well as working towards the point where I'm able to produce something origina
 * what's around?
 some of the stuff I've worked on or am working on.
 recreation math for sure, but hopefully also other random things.
+
+* any feedback, suggestion or comment?
+Feel free to open an issue or discussion on GitHub!
