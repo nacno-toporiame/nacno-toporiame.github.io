@@ -21,9 +21,14 @@ is no stranger for the mathematical omnivore I have been, I've always assumed to
 *Auxiliary*:
 - [HTT] and [HA]: by [[https://www.math.ias.edu/~lurie/][Jacob Lurie]].
 - [LE] [[https://www.sciencedirect.com/science/article/pii/0040938379900181][The localisation of spectra with respect to homology]] by Pete Bousfield.
+- [FS]: [[https://svann.science/files/publications/intro-fil-syn.pdf][An introduction to filtered and synthetic spectra]] by Sven van Nigtevecht
+- [CC]: [[https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/boardman-SS.pdf][Conditional Convergent Spectral Sequences]] by John Michael Boardman
 
-For our purpose today, the Adams spectral sequence is the totalisation spectral sequence of a cosimplicial object associated to an \(\mathbb{E}_1\)-ring
-spectrum \(E\) and a spectrum \(X\). We won't discuss the spectral sequence, but rather the totalisation, which it /morally/ computes.
+*Caveat lector!* For our purpose today, the Adams spectral sequence is the totalisation spectral sequence of a(n augmented) cosimplicial object associated to an \(\mathbb{E}_1\)-ring
+spectrum \(E\) and a spectrum \(X\). We won't discuss the spectral sequence, but rather the totalisation, which it /morally/ computes. The totalisation spectral sequence
+comes from the tower of partial totalisations, also known as the coskeletal filtration, which is closely related to the titular Adams tower.
+The question of /convergence/ is another topic [CC], and has to do with the right non-exactness of sequential limits (\(\operatorname{lim}^1\)).
+What will be addressed in this post is the vanishing of the (homotopy) limit of a certain tower, or /conditional/ convergence in the terminology of [FS, Sec. 2.3.1].
 
 The major examples we'd like to have in mind are \(E = \mathbb{F}_p\) and \(\mathrm{MU}\).
 Other common examples include Bott-periodic or connective topological \(\mathrm{K}\)-theory \(\mathrm{KU}\), \(\mathrm{ku}\), as well as Morava \(\mathrm{E}\)-theories.
@@ -43,10 +48,10 @@ alludes to the classical case of Adams(-Novikov) spectral sequences.
 #+BEGIN_QUOTE
 The connectivity is crucial, both on \(E\) and on \(X\). At a fixed prime, the Morava \(K\)-theories are \(p\)-complete and mutually acyclic.
 #+END_QUOTE
-Before starting, we reiterate that Bousfield [LE, 6.5-7] already showed that the condition on \(pi_0 E\) can be refined.
+Before starting, we reiterate that Bousfield [LE, 6.5-7] already showed that the condition on \(\pi_0 E\) can be refined.
 Nevertheless, the examples we have in mind often don't require such generality.
 
-* The descent tower and the Adams tower
+* The descent tower and the error
 This section is closely following, if not taken from, [ND, Sec. 2.1].
 
 #+BEGIN_QUOTE
@@ -96,7 +101,7 @@ and the lateral terms are the towers described above.
 The limit of the tower \(T_E X\) is thus the fiber of the map \(X \to D_E X\).
 #+END_QUOTE
 Arguably, both the tower \(T^\bullet_E X\) or \(D^\bullet_E X\) deserve the name the Adams tower, although the literature has assigned
-the name to the former. We will call \(T^{\color{gray}(n)}_E\) the *fiber of descent* (tower).
+the name to the former. We will call \(T^{\color{gray}(n)}_E\) the *error of descent* (tower).
 
 * Postnikov convergence
 Recall that every spectrum \(X\) is the limit of its Postnikov truncations \(\tau_{\leq m} X\), and the only spectrum which is \(\infty\)-connective
@@ -120,10 +125,9 @@ a sequential limit of \(r\)-connective spectra is \((r-1)\)-connective, so the f
 As evident from the argument, the assumption on \(F\) can be relaxed, and there is a similar generalisation, replacing \(\mathrm{Sp}\) with
 stable categories with \(t\)-structure. The interested reader will have already taken this as an exercise.
 
-We verify that the classical descent functors, as well as the \(p\)-completion functor, are bounded below.
-
+Evidently the identity functor is bounded below. We verify that the classical descent functors, as well as the \(p\)-completion functor, are bounded below.
 #+BEGIN_QUOTE
-If \(E\) is a connective \(\mathbb{E}_1\)-ring whose \(\pi_0\) is a quotient or localisation of \(\mathbb{Z}\), then the fiber of descent \(T_E\) and descent \(D_E\)
+If \(E\) is a connective \(\mathbb{E}_1\)-ring whose \(\pi_0\) is a quotient or localisation of \(\mathbb{Z}\), then the error of descent \(T_E\) and descent \(D_E\)
 are bounded below functors.
 #+END_QUOTE
 
@@ -149,7 +153,7 @@ C \simeq \operatorname{\Omega} \operatorname*{colim}_n \mathbb{S}/p^n \simeq \op
 \]
 and the \(p\)-completion is given by the mapping spectrum \(X_{\hat p} \simeq \mathrm{map}(\operatorname{\Omega}\mathbb{S}/p^\infty, X)\). The above formula follows.
 
-* The comparison of \(D_E\) with completion
+** The comparison of \(D_E\) with completion
 Assume for this section that \(\pi_0 E \simeq \mathbb{Z}/n\). The classical situation is concerned with the discrete ring spectrum \(E = \mathbb{F}_p\), but
 everything we said above about idempotent algebras applies to \(\mathbb{S}[1/n]\). We call the \(\mathbb{S}/n\)-localisation \(n\)-(adic )completion.
 
@@ -180,7 +184,7 @@ We show that \(X/n\) admits an \(E\)-module structure. As \(X\) is discrete,  it
 and \(X/n\) admits a module structure over \(\mathbb{Z} \otimes \mathbb{S}/n \simeq \mathbb{Z}/n \simeq \tau_{\leq 0} E\).
 Since \(E\) was assumed to be connective, the truncation \(E \to \tau_{\leq 0} E\) is a morphism of rings, and we're done.
 
-* The comparison of \(D_E\) with localisation
+** The comparison of \(D_E\) with localisation
 Assume now that \(\pi_0 E \simeq \mathbb{Z}[T^{-1}]\), then \(E\) is an algebra over the idempotent algebra of the Moore spectrum \(\mathbb{S}[T^{-1}]\).
 Hence there is a factorisation
 \[
@@ -192,4 +196,36 @@ If \(E\) and \(X\) are connective, then \(X[T^{-1}] \simeq D_E X\).
 *Proof.* As before, we reduce to the case where \(X\) is discrete. Since \(E \simeq \mathbb{S}[T^{-1}] \otimes E\), we have
 \(D_E X \simeq D_E(X[T^{-1}])\). Again, the \(E\)-descent diagram for \(X[T^{-1}]\) splits since it admits a module structure over \(\tau_{\leq 0} E\).
 
-*Remark.* If \(\tau_{\leq 0} E \simeq \mathbb{Z}\), then \(I\) is \(1\)-connective, so already the fiber of descent \(T_E\) vanishes on bounded below spectra.
+*Remark.* If \(\tau_{\leq 0} E \simeq \mathbb{Z}\), then \(I\) is \(1\)-connective, so already the error of descent \(T_E\) vanishes on bounded below spectra.
+
+* Bonus: a few examples of \(\operatorname*{lim^1}\) to keep in mind
+
+I don't have a specific example of a connective spectrum whose Adams spectral sequence fails to converge for this reason,
+but instead I'll list a few examples of non-exactness of limits as a sketch of the issue which may arise.
+
+** Limit of surjections need not be surjection
+
+The limit as \(n \to \infty\) of the exact sequences
+\[
+ 0 \to \mathbb{Z} \xrightarrow{p^n} \mathbb{Z} \to \mathbb{Z}/ p^n \to 0
+\]
+(constant in the middle) is only left exact:
+\[
+0 \to 0 \to \mathbb{Z} \to \mathbb{Z}_{p}.
+\]
+One can see that
+\[
+\operatorname*{lim^1} (\ldots \to \mathbb{Z} \xrightarrow{p} \mathbb{Z} \xrightarrow{p} \mathbb{Z} \to\ldots) \simeq \mathbb{Z}_{p}/\mathbb{Z}
+\]
+
+*Remark* The limit of a diagram /consisting of/ surjective maps of sets surjects onto the diagram.
+
+** Limit and image don't play along
+In order to show that the \(E_\infty\)-page computes the graded pieces of a filtration on the colimit, one needs to look at certain intersections of
+images. This is an issue even when the tower conditionally converges, as in our cases above.
+
+As \(N \to \infty\), each of the maps
+\[
+ \bigoplus_{p \geq N \text{ prime}} p\mathbb{Z} \xrightarrow{\nabla} \mathbb{Z}
+\]
+is surjective, so that the limit of image is \(\mathbb{Z}\), but the image of the limit map is of course \(0\).
