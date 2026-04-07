@@ -1,0 +1,26 @@
+---
+title: "Variations on an oriental folksong: The algebraist's introduction to Thom spectra"
+date: 2026-04-07T13:00:45+02:00
+draft: false
+math: true
+toc: true
+tags:
+  - Math
+  - Algebra
+description: What Thom's construction could mean, algebraically.
+---
+These are some notes on Thom spectra, placed within the context of the six-functor formalism
+of parametrised spectra. They are based on a Chinese version _[[https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:NaCNO/%E5%88%9D%E8%AF%86Thom%E6%9E%84%E9%80%A0][on 香蕉空间]]_ that I drafted during
+the summer of 2025, which I translated to English and expanded quite a bit around December. There
+was a TeXed up Chinese version before the content expansion, which I might make public after
+backporting the changes (when I have time and remember).
+
+[[/files/thom-spectra-intro-english.pdf][Link to the notes (PDF)]]
+
+The ideas are mostly based on the work of _[[https://arxiv.org/abs/1403.4325][Ando--Blumberg--Gepner--Hopkins--Rezk]]_.
+I should mention the work of _[[https://arxiv.org/abs/1411.7988][Antolín-Camarena--Barthel]]_ as well, which hasn't come up in the notes.
+The notes are more centered around the use of six-functors for classical algebraic topology.
+
+The current notes have been distributed within our working groups and to a few fellow students,
+but not more broadly than that, as I have hesitations about conducting much academic activity
+under my current legal identity, especially on the internet.
