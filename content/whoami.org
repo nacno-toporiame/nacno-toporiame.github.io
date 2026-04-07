@@ -1,3 +1,4 @@
+
 ---
 title: Who's NaCNO?
 menu:
@@ -11,9 +12,13 @@ description: hello, it me!
 ---
 
 * the ∞-catgirl & witch apprentice
-I'm currently a graduate student trying to work her way into homotopy theory and/or
-algebraic K-theory. I enjoy reinterpreting and explaining well-known things,
-as well as working towards the point where I'm able to produce something original.
+As of April 2026, I'm Ruochong Huang, a graduate student in mathematics at FU Berlin
+in the working group of Prof. Holger Reich, trying to work her way into homotopy theory and/or
+algebraic K-theory. I'm particularly interested in
+chromatic structures, equivariant and motivic homotopy theory.
+
+I enjoy reinterpreting and explaining well-known things,
+as I slowly work towards the point where I'm able to produce something original.
 
 * what's around?
 some of the stuff I've worked on or am working on.
