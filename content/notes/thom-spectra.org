@@ -15,6 +15,9 @@ the summer of 2025, which I translated to English and expanded quite a bit aroun
 was a TeXed up Chinese version before the content expansion, which I might make public after
 backporting the changes (when I have time and remember).
 
+*UPDATES*:
+- (20.apr.2026) Fixed a few typos. Minor changes in 1.2 following feedback from Bastiaan Cnossen.
+
 [[/files/thom-spectra-intro-english.pdf][Link to the notes (PDF)]]
 
 The ideas are mostly based on the work of _[[https://arxiv.org/abs/1403.4325][Ando--Blumberg--Gepner--Hopkins--Rezk]]_.
