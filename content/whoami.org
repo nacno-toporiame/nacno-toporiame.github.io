@@ -12,8 +12,9 @@ description: hello, it me!
 ---
 
 * the ∞-catgirl & witch apprentice
-As of April 2026, I'm Ruochong Huang, a graduate student in mathematics at FU Berlin
-in the working group of Prof. Holger Reich, trying to work her way into homotopy theory and/or
+As of May 2026, this blog is run by Roxanne (formally Ruochong) Huang, which is me,
+a graduate student in mathematics at FU Berlin in the working group of Prof. Holger Reich,
+trying to work her way into homotopy theory and/or
 algebraic K-theory. I'm particularly interested in
 chromatic structures, equivariant and motivic homotopy theory.
 
@@ -22,7 +23,8 @@ as I slowly work towards the point where I'm able to produce something original.
 
 * what's around?
 some of the stuff I've worked on or am working on.
-recreation math for sure, but hopefully also other random things.
+at the moment, I'm mostly writing short math notes in the form of blog posts,
+but other things which are important to my life may also appear in the near future.
 
 * any feedback, suggestion or comment?
 Feel free to open an issue or discussion on GitHub!
