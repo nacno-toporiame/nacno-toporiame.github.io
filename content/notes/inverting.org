@@ -31,7 +31,7 @@ or the degenerate case, an "element" of an \(\EE_\infty\)-monoid.
 Earlier today, I wrote quite a few paragraphs in the Algebraic Topology discord
 server about it, and rubberducked myself into the answer. I apologize if I wasted anyone else's time.
 
-*EDIT 2026-01-18*: An error on how far we could generalise the setting in the Remark.
+*EDIT 2026-01-18*: An error on how far we could generalise the setting in the Remark.\\
 *EDIT 2026-02-18*: Reworked some storytelling.
 
 In the introduction, I'll be vague about the precise meaning of "localisation" and "to invert".

@@ -1,11 +1,13 @@
 baseURL: "https://nacno-toporiame.github.io/"
-languageCode: "en-dk"
+locale: "en-dk"
 title: "NaCNO's magic scroll"
 copyright: "NaCNO"
 theme: 'stack'
 
 params:
   description: "a witch apprentice's spellbook"
+  dateFormat:
+    published: "3 PM on a Monday in January 2006"
   mainSections:
     - notes
   article:
@@ -13,12 +15,13 @@ params:
     readingTime: false
   sidebar:
     subtitle: "a witch apprentice's spellbook"
-    avatar:
-      src: img/avatar.jpeg
+    avatar: "img/avatar.jpeg"
   widgets:
     page:
       - type: toc
   cookies:
+    enabled: false
+  comments:
     enabled: false
 
 privacy:
