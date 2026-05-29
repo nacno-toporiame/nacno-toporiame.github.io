@@ -3,6 +3,7 @@ locale: "en-dk"
 title: "NaCNO's magic scroll"
 copyright: "NaCNO"
 theme: 'stack'
+enableRobotsTXT: true
 
 params:
   description: "a witch apprentice's spellbook"
