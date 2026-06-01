@@ -1,0 +1,46 @@
+---
+title: Integrating some emacs into my system
+date: 2026-06-01T22:10:49+02:00
+draft: false
+math: false
+toc: true
+tags:
+  - Emacs
+  - Linux
+---
+This post is about some emacs configurations which I use in my work environment.
+* Vterm query-on-exit blocks shutdown
+In the default configuration, killing a vterm buffer with an idle shell will query the user whether
+they really wants to kill the process. An integration like kitty would account for the shell process when
+deciding whether killing a session should be silent. The following achieves a similar result for
+vterm's shell integration.
+
+Since my emacs starts as user service, failing to kill the buffer due to the above will stall a power-off. Since
+there is no possibility to confirm the query, the user is forced to wait for the systemd user service to
+timeout on stopping. This will be an annoyance when you're not careful with the default setting.
+
+The solution is simple: emacs has ~(set-)process-query-on-exit-flag~, which disables the query when
+set to ~nil~. We can toggle the flag when a prompt is printed or a command starts, using OSC 51 message passing.
+This is done using an escape sequence, cf. the use cases of ~vterm_printf~ on _[[https://github.com/akermu/emacs-libvterm][the GitHub page of emacs-libvterm]]_.
+See also the standard _[[https://invisible-island.net/xterm/ctlseqs/ctlseqs.html][XTerm control sequences]]_ and Wikipedia article on _[[https://en.wikipedia.org/wiki/ANSI_escape_code][ANSI escape codes]]_.
+
+During emacs initialisation/using custom.el, we add the following to the list variable ~vterm-eval-cmds~:
+#+BEGIN_SRC elisp
+("set-query-on-exit" (lambda (flag)
+  (set-process-query-on-exit-flag
+    (get-buffer-process (current-buffer))
+    (not (string= "nil" flag)))))
+#+END_SRC
+This allows the escape sequence ~^[]51;E<message>^G~ to evaluate the above designated elisp expression
+through vterm's message passing function.
+We also add the following to the shell integration script (e.g. for zsh):
+#+BEGIN_SRC zsh
+vterm_query_on_exit_on(){
+  vterm_printf "51;Eset-query-on-exit t"
+}
+vterm_query_on_exit_off(){
+  vterm_printf "51;Eset-query-on-exit nil"
+}
+set -A precmd_functions vterm_query_on_exit_off $precmd_functions
+set -A preexec_functions vterm_query_on_exit_on $preexec_functions
+#+END_SRC

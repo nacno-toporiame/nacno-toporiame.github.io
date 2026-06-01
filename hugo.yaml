@@ -10,7 +10,8 @@ params:
   dateFormat:
     published: "3 PM on a Monday in January 2006"
   mainSections:
-    - notes
+    - math-notes
+    - os-env
   article:
     toc: true
     readingTime: false
