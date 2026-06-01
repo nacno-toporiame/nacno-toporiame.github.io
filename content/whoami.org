@@ -9,10 +9,12 @@ menu:
       icon: copyright
 toc: false
 description: hello, it me!
+math: false
 ---
 
 * the ∞-catgirl & witch apprentice
-As of May 2026, this blog is run by Roxanne (formally Ruochong) Huang, which is me,
+
+As of June 2026, this blog is run by *Roxanne Huang* (see below for more names), which is me,
 a graduate student in mathematics at FU Berlin in the working group of Prof. Holger Reich,
 trying to work her way into homotopy theory and/or
 algebraic K-theory. I'm particularly interested in
@@ -20,6 +22,11 @@ chromatic structures, equivariant and motivic homotopy theory.
 
 I enjoy reinterpreting and explaining well-known things,
 as I slowly work towards the point where I'm able to produce something original.
+
+** Names
+- My name is *Roxanne Huang*, also formally *Ruochong Huang*.
+- The blog is also run under the name *NaCNO*, a stylisation of a Japanese name *なつの*.
+  The letter C therefore denotes a syllable ​/tsɯ/ and not ​/k/.
 
 * what's around?
 some of the stuff I've worked on or am working on.
