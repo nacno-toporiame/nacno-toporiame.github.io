@@ -1,5 +1,10 @@
 ---
+title: No Title
 date: '{{ .Date }}'
 draft: true
-title: No title
+math: true
+toc: true
+tags:
+  - Math
+description: Add Description
 ---

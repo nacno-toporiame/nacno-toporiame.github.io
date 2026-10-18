@@ -18,7 +18,7 @@ params:
   sidebar:
     subtitle: "a witch apprentice's spellbook"
     avatar: "img/avatar.jpeg"
-    emoji: "🏳️‍🌈"
+    emoji: "🏳️‍⚧️"
   widgets:
     page:
       - type: toc
@@ -26,6 +26,10 @@ params:
     enabled: false
   comments:
     enabled: false
+
+security:
+  allowContent:
+  - '! ^text/html$'
 
 privacy:
   googleAnalytics:

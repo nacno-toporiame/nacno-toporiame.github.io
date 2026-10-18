@@ -13,18 +13,23 @@ math: false
 
 * the ∞-catgirl & witch apprentice
 
-As of June 2026, this blog is run by *Roxanne Huang* (she/they) (see below for more on names),
-which is me, a graduate student in mathematics at FU Berlin in the working group of Prof. Holger Reich,
-trying to work her way into homotopy theory and/or algebraic K-theory.
+As of October 2026, this blog is run by *Roxanne Huang* (pronouns: she/they) (see below for more on names),
+which is me, a graduate student in mathematics at Universität Regensburg,
+trying to work her way into homotopy theory and algebraic K-theory.
 I'm particularly interested in chromatic structures, equivariant and motivic homotopy theory.
+
+I'm supported by the SFB1785, supervised by Prof. Marc Hoyois and Prof. Markus Land.
+Previously I was a master student in the working group of Prof. Holger Reich at FU Berlin.
 
 I enjoy reinterpreting and explaining well-known things,
 as I slowly work towards the point where I'm able to produce something original.
 
 ** Names
-- My name is *Roxanne Huang*, also formally *Ruochong Huang*.
+- My name is *Roxanne Huang*, also sometimes *Ruochong Huang*.
 - The blog is also run under the name *NaCNO*, a stylisation of a Japanese name *なつの*.
-  The letter C therefore denotes a syllable ​/tsɯ/ and not ​the consonant /k/.
+  The letter C therefore denotes a syllable ​/tsɯ/ and not ​the consonant /k/, although this
+  choice is partially inspired by the (reconstructed) Old Chinese pronunciation of the
+  first character of my personal name in Chinese.
 
 * what's around?
 some of the stuff I've worked on or am working on.
