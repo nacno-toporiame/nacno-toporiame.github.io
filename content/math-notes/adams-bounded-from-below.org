@@ -82,13 +82,8 @@ We use the only reasonable convention that \(\Delta_{\leq -1}=\emptyset\). A few
    (I haven't got to read the paper yet, so I can't say how canonical or unique these rings are. These are almost surely not computable anyway.)
 5. The filtration is complete in the sense that its limit is \(D_E X\). Caution is due in translating this into computations on homotopy groups.
    We don't plan to cover this part in this blog post.
-1. Although \(\Delta^{\textrm{inj}}\) is coinitial in \(\Delta\) [HTT, 6.5.3.7], the same is not true for \(\Delta_{\leq n}\) (which isn't even weakly contractible, but see [HA, 1.2.4.17]).
-   This is one reason we demanded that \(E\) be \(\mathbb{E}_1\).
-   
-Another reason for demanding a ring structure lies with the identification of the Adams \(E_2\)-page as \(\mathrm{Ext}\)-groups
-of graded comodules over a Hopf algebroid. This also depends on a flatness conditions which will not be discussed.
 
-We'll make use of the following well-known description of the Adam tower [ND, Prop. 2.14]: (The proof is [HA 1.2.4.17]
+We'll make use of the following classical description of the Adam tower [ND, Prop. 2.14]: (The proof is by [HA 1.2.4.17])
 #+BEGIN_QUOTE
 Let \(I \coloneqq \mathrm{fib}(\mathbb{S} \to E)\) be the "kernel" of the ring's unit. Set iteratively
 \[
@@ -102,6 +97,16 @@ The limit of the tower \(T_E X\) is thus the fiber of the map \(X \to D_E X\).
 #+END_QUOTE
 Arguably, both the tower \(T^\bullet_E X\) or \(D^\bullet_E X\) deserve the name the Adams tower, although the literature has assigned
 the name to the former. We will call \(T^{\color{gray}(n)}_E\) the *error of descent* (tower).
+
+Note that the unit of the ring structure alone suffices to define the two towers, and the ring
+structure in addition to determine the \(E_2\)-page.
+The \(\mathbb{E}_1\)-structure is here to provide the cosimplicial descent interpretation.
+Since the rings appearing in practice almost always are \(\mathbb{E}_1\), we take on this assumption.
+
+My other secret reason to do so is that partial totalisations of a semicosimplicial object are slightly awkward.
+As the subcategory \(\Delta^{\textrm{inj}}\) is coinitial within in \(\Delta\) [HTT, 6.5.3.7], cosimplicial totalisations can be computed semicosimplicially.
+But at the finite stages \(\Delta^{\textrm{inj}}_{\leq n}\) within \(\Delta_{\leq n}\) this isn't quite true.
+When \(n\) is odd, the former category has Euler characteristic \(0\) (fun exercise), and thus isn't even weakly contractible.
 
 * Postnikov convergence
 Recall that every spectrum \(X\) is the limit of its Postnikov truncations \(\tau_{\leq m} X\), and the only spectrum which is \(\infty\)-connective
@@ -203,7 +208,7 @@ If \(E\) and \(X\) are connective, then \(X[T^{-1}] \simeq D_E X\).
 I don't have a specific example of a connective spectrum whose Adams spectral sequence fails to converge for this reason,
 but instead I'll list a few examples of non-exactness of limits as a sketch of the issue which may arise.
 
-** Limit of surjections need not be surjection
+** Limit of surjections need not be a surjection
 
 The limit as \(n \to \infty\) of the exact sequences
 \[
