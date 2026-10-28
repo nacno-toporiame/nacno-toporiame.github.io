@@ -20,8 +20,8 @@ description: "A classical lemma used to construct k-invariants, and its relation
   \gdef\Loop{\mathrm{\Omega}}
 \]
 
-The original version was posted on my [[https://toporiame.blogspot.com/2025/08/a-homotopical-revisit-to-non-abelian.html][Blogspot]], followed subsequently
-by a more elaborate [[https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:NaCNO/%E5%90%8C%E4%BC%A6%E8%AE%BA%E7%9C%BC%E4%B8%AD%E7%9A%84%E4%B8%AD%E5%BF%83%E6%89%A9%E5%BC%A0][Chinese version]], hosted
+The original version was posted on my _[[https://toporiame.blogspot.com/2025/08/a-homotopical-revisit-to-non-abelian.html][Blogspot]]_, followed subsequently
+by a more elaborate _[[https://www.bananaspace.org/wiki/%E7%94%A8%E6%88%B7:NaCNO/%E5%90%8C%E4%BC%A6%E8%AE%BA%E7%9C%BC%E4%B8%AD%E7%9A%84%E4%B8%AD%E5%BF%83%E6%89%A9%E5%BC%A0][Chinese version]]_, hosted
 on 香蕉空间 Bananaspace, where I reviewed some group theory and
 higher algebra for a more clear story. Feel free to make suggestions
 and please do point out any other error you notice!
@@ -256,10 +256,10 @@ giving corresponding long exact sequences on cohomology (=global sections).
 :PROPERTIES:
 :CUSTOM_ID: A-reading-list
 :END:
-1. [[https://ncatlab.org/nlab/show/infinity-group+extension][nLab page on \(\infty\)-group extension]]
-2. [[https://www.davidjaz.com/Talks/DJM_HoTT2020.pdf][David Jaz Myers: Higher Schreier Theory]]
-3. [[https://arxiv.org/abs/2405.12118][Georg Lehner: Group completion via the action \(\infty\)-category. Contains juicy stuff about groups]]
-4. [[https://drive.google.com/file/d/1-64jIWOXvSD2apMwYDe1LRS74IXpb-E6][May-Ponto's "More Concise" book. Grabbed from Ranicki's website, TOC added by me.]]
+1. _[[https://ncatlab.org/nlab/show/infinity-group+extension][nLab page on \(\infty\)-group extension]]_
+2. _[[https://www.davidjaz.com/Talks/DJM_HoTT2020.pdf][David Jaz Myers: Higher Schreier Theory]]_
+3. _[[https://arxiv.org/abs/2405.12118][Georg Lehner: Group completion via the action \(\infty\)-category. Contains juicy stuff about groups]]_
+4. _[[https://drive.google.com/file/d/1-64jIWOXvSD2apMwYDe1LRS74IXpb-E6][May-Ponto's "More Concise" book. Grabbed from Ranicki's website, TOC added by me.]]_
 
 ** i. Very much classical geometry
 :PROPERTIES:

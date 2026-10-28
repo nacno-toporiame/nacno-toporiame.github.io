@@ -16,13 +16,13 @@ is no stranger for the mathematical omnivore I have been, I've always assumed to
 /do what they claim to/, and somewhat focused on what the machine produces, less so on what it computes.
 
 *References*:
-- [ND]: [[https://arxiv.org/abs/1507.06869][Nilpotence and descent in equivariant stable homotopy theory]] by Akhil Mathew, Niko Naumann and Justin Noel.
-- [TC]: [[http://arxiv.org/abs/1707.01799][On topological cyclic homology]] by Thomas Nikolaus and Peter Scholze.
+- [ND]: _[[https://arxiv.org/abs/1507.06869][Nilpotence and descent in equivariant stable homotopy theory]]_ by Akhil Mathew, Niko Naumann and Justin Noel.
+- [TC]: _[[http://arxiv.org/abs/1707.01799][On topological cyclic homology]]_ by Thomas Nikolaus and Peter Scholze.
 *Auxiliary*:
-- [HTT] and [HA]: by [[https://www.math.ias.edu/~lurie/][Jacob Lurie]].
-- [LE] [[https://www.sciencedirect.com/science/article/pii/0040938379900181][The localisation of spectra with respect to homology]] by Pete Bousfield.
-- [FS]: [[https://svann.science/files/publications/intro-fil-syn.pdf][An introduction to filtered and synthetic spectra]] by Sven van Nigtevecht
-- [CC]: [[https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/boardman-SS.pdf][Conditional Convergent Spectral Sequences]] by John Michael Boardman
+- [HTT] and [HA]: by _[[https://www.math.ias.edu/~lurie/][Jacob Lurie]]_.
+- [LE] _[[https://www.sciencedirect.com/science/article/pii/0040938379900181][The localisation of spectra with respect to homology]]_ by Pete Bousfield.
+- [FS]: _[[https://svann.science/files/publications/intro-fil-syn.pdf][An introduction to filtered and synthetic spectra]]_ by Sven van Nigtevecht
+- [CC]: _[[https://www.sas.rochester.edu/mth/sites/doug-ravenel/otherpapers/boardman-SS.pdf][Conditional Convergent Spectral Sequences]]_ by John Michael Boardman
 
 *Caveat lector!* For our purpose today, the Adams spectral sequence is the totalisation spectral sequence of a(n augmented) cosimplicial object associated to an \(\mathbb{E}_1\)-ring
 spectrum \(E\) and a spectrum \(X\). We won't discuss the spectral sequence, but rather the totalisation, which it /morally/ computes. The totalisation spectral sequence
