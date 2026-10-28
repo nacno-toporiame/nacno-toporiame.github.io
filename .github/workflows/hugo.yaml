@@ -1,10 +1,10 @@
 name: Build and deploy
 env:
   # Define tool versions
-  DART_SASS_VERSION: 1.105.1
-  GO_VERSION: 1.27.2
-  HUGO_VERSION: 0.168.0
-  NODE_VERSION: 24.21.0
+  DART_SASS_VERSION: 1.99.0
+  GO_VERSION: 1.26.2
+  HUGO_VERSION: 0.161.1
+  NODE_VERSION: 24.15.0
 
   # Set the build time zone
   TZ: Europe/Berlin
@@ -25,7 +25,7 @@ defaults:
     shell: bash
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -133,7 +133,7 @@ jobs:
           include-hidden-files: false
           path: ./public
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     needs: build
     environment:
       name: github-pages
